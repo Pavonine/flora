@@ -1,1 +1,5 @@
-const x: number = 1;
+import "./style.css";
+
+if (module.hot) {
+  module.hot.accept();
+}

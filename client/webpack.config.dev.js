@@ -1,6 +1,7 @@
 const { resolve } = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   entry: resolve(__dirname, 'src/main.ts'),
@@ -11,9 +12,27 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /.ts$/,
+        test: /\.ts$/,
         loader: 'awesome-typescript-loader',
         exclude: /node_modules/,
+      },
+      {
+        test: /\.css$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+            },
+          },
+          {
+            loader: 'postcss-loader',
+          }
+        ]
       }
     ]
   },
@@ -21,13 +40,16 @@ module.exports = {
   mode: 'development',
   plugins: [
     new HtmlWebpackPlugin({
-      template: resolve(__dirname, 'src/index.html')
+      template: resolve(__dirname, './src/index.html')
     }),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new CleanWebpackPlugin(resolve(__dirname, 'dist'))
   ],
   devServer: {
     contentBase: resolve(__dirname, 'dist'),
     port: 9000,
-    hot: true
+    hot: true,
+    open: true,
+    progress: true,
   }
 }
