@@ -40,6 +40,7 @@ module.exports = {
   mode: 'development',
   plugins: [
     new HtmlWebpackPlugin({
+      inject: true,
       template: resolve(__dirname, './src/index.html')
     }),
     new webpack.HotModuleReplacementPlugin(),

@@ -5,11 +5,11 @@
   "main": "index.js",
   "scripts": {
     "dev:start": "webpack-dev-server --config ./webpack.config.dev.js",
-    "dev:build": "webpack --config ./webpack.config.dev.js "
+    "dev:build": "webpack --config ./webpack.config.dev.js --watch"
   },
   "keywords": [],
-  "author": "buoyantair<>",
-  "license": "ISC",
+  "author": "buoyantair<buoyantair@gmail.com>",
+  "license": "MIT",
   "dependencies": {
     "typescript": "^3.0.3"
   },
