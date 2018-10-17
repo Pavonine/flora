@@ -1,4 +1,4 @@
-import "./style.css";
+import "./style.pcss";
 
 if (module.hot) {
   module.hot.accept();

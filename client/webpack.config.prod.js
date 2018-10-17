@@ -2,6 +2,7 @@ const { resolve } = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   entry: resolve(__dirname, 'src/main.ts'),
@@ -21,7 +22,7 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           {
-            loader: 'style-loader'
+            loader: MiniCssExtractPlugin.loader,
           },
           {
             loader: 'css-loader',
@@ -44,7 +45,11 @@ module.exports = {
       template: resolve(__dirname, './src/index.html')
     }),
     new webpack.HotModuleReplacementPlugin(),
-    new CleanWebpackPlugin(resolve(__dirname, 'dist'))
+    new CleanWebpackPlugin(resolve(__dirname, 'dist')),
+    new MiniCssExtractPlugin({
+      filename: "[name].css",
+      chunkFilename: "[id].css"
+    })
   ],
   devServer: {
     contentBase: resolve(__dirname, 'dist'),
