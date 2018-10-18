@@ -2,7 +2,7 @@ const tasksList: HTMLDivElement = document.querySelector("#taskslist");
 const tasksData: object = JSON.parse(localStorage.getItem("taskslist")) || [];
 
 export interface ITask {
-  task: string;
+  text: string;
   isCompleted: boolean;
   domReference: HTMLDivElement;
   readonly timeStamp: Date;
@@ -12,14 +12,15 @@ export interface ITask {
 }
 
 export default class Task implements ITask {
-  public task: string;
+  public text: string;
   public isCompleted: boolean = false;
   public domReference: HTMLDivElement;
   public readonly timeStamp: Date;
   public lastEdited: Date;
 
   constructor(text: string) {
-    this.task = text;
+    this.timeStamp = new Date();
+    this.text = text;
 
     const divTask = document.createElement("div");
     divTask.className = "task";
@@ -35,7 +36,6 @@ export default class Task implements ITask {
     divTask.appendChild(divTaskCheckbox);
     divTask.appendChild(inputTaskContent);
     this.domReference = divTask;
-    tasksList.appendChild(divTask);
 
     divTaskCheckbox.addEventListener("click", () => this.toggleTask());
     inputTaskContent.addEventListener("keydown", (ev: KeyboardEvent) => {
