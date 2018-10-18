@@ -5,9 +5,9 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-  entry: resolve(__dirname, 'src/main.ts'),
+  entry: resolve(__dirname, './src/main.ts'),
   output: {
-    path: resolve(__dirname, 'dist'),
+    path: resolve(__dirname, './dist'),
     filename: 'bundle.js',
   },
   module: {
@@ -52,10 +52,13 @@ module.exports = {
     })
   ],
   devServer: {
-    contentBase: resolve(__dirname, 'dist'),
+    contentBase: resolve(__dirname, './dist'),
     port: 9000,
     hot: true,
     open: true,
     progress: true,
+  },
+  resolve: {
+    extensions: ['.ts', '.js']
   }
 }
