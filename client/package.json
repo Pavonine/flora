@@ -13,10 +13,13 @@
   "author": "buoyantair<buoyantair@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "typescript": "^3.0.3"
+    "redux": "^4.0.1",
+    "typescript": "^3.0.3",
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "@types/jest": "^23.3.5",
+    "@types/uuid": "^3.4.4",
     "@types/webpack-env": "^1.13.6",
     "autoprefixer": "^9.1.5",
     "awesome-typescript-loader": "^5.2.1",
