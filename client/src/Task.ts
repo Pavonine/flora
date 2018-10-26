@@ -20,7 +20,11 @@ export default class Task implements ITask {
     divTask.className = "task";
     const divTaskCheckbox: HTMLDivElement = document.createElement("div");
     divTaskCheckbox.className = "task-checkbox";
+    const inputTaskLabel: HTMLLabelElement = document.createElement("label");
+    inputTaskLabel.textContent = "Enter your task";
+    inputTaskLabel.htmlFor = `task_${task.uuid}`;
     const inputTaskContent: HTMLInputElement = document.createElement("input");
+    inputTaskContent.name = `task_${task.uuid}`;
     inputTaskContent.type = "text";
     inputTaskContent.className = "task-content";
     inputTaskContent.contentEditable = "true";
@@ -30,6 +34,7 @@ export default class Task implements ITask {
 
     divTask.appendChild(divTaskCheckbox);
     divTask.appendChild(inputTaskContent);
+    divTask.appendChild(inputTaskLabel);
     task.domReference = divTask;
 
     divTaskCheckbox.addEventListener("click", () => task.toggleTask());

@@ -38,6 +38,8 @@ export default class TaskList implements ITaskList {
   public removeTask() {
     this.tasks.pop();
     this.renderTasks(this.tasks);
-    this.tasks[this.tasks.length - 1].focus();
+    const previousTask: Task = this.tasks[this.tasks.length - 1];
+    previousTask.focus();
+    previousTask.focusNode.value = previousTask.text;
   }
 }

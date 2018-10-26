@@ -1,0 +1,9 @@
+{
+  "short_name": "Flora",
+  "name": "Flora Task Manager",
+  "start_url": ".",
+  "background_color": "red",
+  "display": "standalone",
+  "theme_color": "red",
+  "orientation": "portrait"
+}
