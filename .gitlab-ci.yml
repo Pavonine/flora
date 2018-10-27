@@ -15,7 +15,7 @@ image: node:latest
 # http://docs.gitlab.com/ce/ci/yaml/README.html#cache
 cache:
   paths:
-  - client/node_modules/
+  - ./client/node_modules/
 
 #test_async:
 #  script:
@@ -30,11 +30,11 @@ cache:
 pages:
   stage: deploy
   script:
-  - cd /client
+  - cd ./client
   - npm install
   - npm run dev:build
   - mkdir .public
-  - cp -r /client/dist/* .public
+  - cp -r ./client/dist/* .public
   - mv .public public
   artifacts:
     paths:
