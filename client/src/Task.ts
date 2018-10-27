@@ -40,12 +40,17 @@ export default class Task implements ITask {
     divTaskCheckbox.addEventListener("click", () => task.toggleTask());
     inputTaskContent.addEventListener("keydown", (ev: KeyboardEvent) => {
       task.text = (ev.srcElement as HTMLInputElement).value;
-      if (ev.keyCode === 13) {
-        // When Enter is pressed, create a new task
+      const nextTask: Task | boolean = task.taskList.nextTask(task.uuid);
+      if (ev.keyCode === 13 && task.taskList.getIndex(task.uuid) === task.taskList.tasks.length - 1) {
+        // When Enter is pressed, and the cursor is on the last element, create a new task
         task.taskList.addTask();
+      } else if (ev.keyCode === 13 && nextTask) {
+        // When Enter is pressed and the cursor is not on the last element
+        // Focus on the next task
+        nextTask.focusNode.focus();
       } else if (ev.keyCode === 8 && task.text.length === 0) {
         // When backspace is pressed and there is no text, delete the task
-        task.taskList.removeTask();
+        task.taskList.removeTask(task.uuid);
       }
     });
 
