@@ -34,6 +34,7 @@ pages:
   - npm install
   - npm run dev:build
   - mkdir .public
+  - ls
   - cp -r ./client/dist/* .public
   - mv .public public
   artifacts:
