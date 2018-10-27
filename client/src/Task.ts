@@ -49,6 +49,7 @@ export default class Task implements ITask {
         // Focus on the next task
         nextTask.focusNode.focus();
       } else if (ev.keyCode === 8 && task.text.length === 0) {
+        ev.preventDefault();
         // When backspace is pressed and there is no text, delete the task
         task.taskList.removeTask(task.uuid);
       }
