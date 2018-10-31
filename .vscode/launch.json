@@ -9,6 +9,7 @@
       "request": "launch",
       "name": "Launch via NPM",
       "runtimeExecutable": "npm",
+      "cwd": "${workspaceFolder}/client",
       "runtimeArgs": [
         "run-script",
         "dev:start"
