@@ -7,9 +7,9 @@ export interface ITask {
   isCompleted: boolean;
   domReference: HTMLDivElement;
   focusNode: HTMLInputElement;
-  readonly timeStamp: Date;
+  timeStamp: Date;
   lastEdited: Date;
-  readonly taskList: TaskList;
+  taskList: TaskList;
   toggleTask(): void;
   focus(): void;
 }
@@ -41,6 +41,7 @@ export default class Task implements ITask {
     inputTaskContent.addEventListener("keydown", (ev: KeyboardEvent) => {
       task.text = (ev.srcElement as HTMLInputElement).value;
       const nextTask: Task | boolean = task.taskList.nextTask(task.uuid);
+      task.taskList.saveDataToLocalStorage();
       if (ev.keyCode === 13 && task.taskList.getIndex(task.uuid) === task.taskList.tasks.length - 1) {
         // When Enter is pressed, and the cursor is on the last element, create a new task
         task.taskList.addTask();
@@ -59,19 +60,28 @@ export default class Task implements ITask {
   }
 
   public text: string;
-  public isCompleted: boolean = false;
+  public isCompleted: boolean;
   public domReference: HTMLDivElement;
-  public readonly timeStamp: Date;
-  public readonly taskList: TaskList;
+  public timeStamp: Date;
+  public taskList: TaskList;
   public lastEdited: Date;
   public uuid: string;
   public focusNode: HTMLInputElement;
 
-  constructor(text: string, taskList: TaskList) {
-    this.uuid = uuidv1();
-    this.timeStamp = new Date();
+  constructor(
+    text: string,
+    taskList: TaskList,
+    isCompleted?: boolean,
+    timeStamp?: Date,
+    lastEdited?: Date,
+    uuid?: string,
+  ) {
     this.text = text;
     this.taskList = taskList;
+    this.isCompleted = isCompleted || false;
+    this.uuid = uuid || uuidv1();
+    this.timeStamp = timeStamp || new Date();
+    this.lastEdited = lastEdited || this.timeStamp;
   }
 
   public toggleTask() {
@@ -83,6 +93,8 @@ export default class Task implements ITask {
         this.isCompleted = true;
         this.domReference.classList.add("task-completed");
       }
+
+      this.taskList.saveDataToLocalStorage();
     }
   }
 

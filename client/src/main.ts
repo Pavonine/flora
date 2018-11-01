@@ -6,7 +6,7 @@ if (module.hot) {
   module.hot.accept();
 }
 
-const task = new TaskList();
+const taskList = new TaskList();
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {

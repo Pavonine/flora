@@ -2,6 +2,8 @@
 import Task from "./Task";
 
 const tasksList: HTMLDivElement = document.querySelector("#taskslist");
+const LOCAL_STORAGE_NAME = "taskList";
+
 
 export interface ITaskList {
   renderTasks(tasks: Task[]): void;
@@ -9,6 +11,10 @@ export interface ITaskList {
   removeTask(uuid: string): void;
   nextTask(uuid: string): Task | boolean;
   getIndex(uuid: string): number;
+  generateRawData(): any;
+  saveDataToLocalStorage(): boolean;
+  getRawDataFromLocalStorage(): [] | false;
+  generateTasksFromRawData(): void;
   tasks: Task[];
 }
 
@@ -17,7 +23,51 @@ export default class TaskList implements ITaskList {
   public tasks: Task[] = [];
   constructor() {
     this.domContainer = tasksList;
-    this.addTask();
+
+    this.generateTasksFromRawData();
+    this.renderTasks(this.tasks);
+
+    if (this.tasks.length === 0) {
+      this.addTask();
+    }
+  }
+
+  public saveDataToLocalStorage() {
+    if (window.localStorage) {
+      window.localStorage.setItem(LOCAL_STORAGE_NAME, JSON.stringify(this.generateRawData()));
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  public getRawDataFromLocalStorage() {
+    return window.localStorage ? JSON.parse(window.localStorage.getItem(LOCAL_STORAGE_NAME)) : false;
+  }
+
+  public generateTasksFromRawData() {
+    const rawData = this.getRawDataFromLocalStorage();
+
+    for (const { uuid, text, isCompleted, timeStamp, lastEdited  } of rawData) {
+      this.tasks.push(new Task(text, this, isCompleted, timeStamp, lastEdited, uuid));
+    }
+  }
+
+
+  public generateRawData() {
+    return this.tasks.map(({
+      uuid,
+      text,
+      isCompleted,
+      timeStamp,
+      lastEdited,
+    }: Task) => ({
+      uuid,
+      text,
+      isCompleted,
+      timeStamp,
+      lastEdited,
+    }))
   }
 
   public getIndex(uuid: string): number {
@@ -38,6 +88,8 @@ export default class TaskList implements ITaskList {
     this.tasks.push(newTask);
     this.renderTasks(this.tasks);
     newTask.focus();
+
+    this.saveDataToLocalStorage();
   }
 
   public renderTasks(tasks: Task[]) {
