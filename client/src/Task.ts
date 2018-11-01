@@ -17,7 +17,7 @@ export interface ITask {
 export default class Task implements ITask {
   public static renderTask(task: Task, parent: HTMLDivElement) {
     const divTask: HTMLDivElement = document.createElement("div");
-    divTask.className = "task";
+    divTask.className = `task ${task.isCompleted && "task-completed"}`;
     const divTaskCheckbox: HTMLDivElement = document.createElement("div");
     divTaskCheckbox.className = "task-checkbox";
     const inputTaskLabel: HTMLLabelElement = document.createElement("label");

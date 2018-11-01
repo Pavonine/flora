@@ -14,7 +14,7 @@ export interface ITaskList {
   generateRawData(): any;
   saveDataToLocalStorage(): boolean;
   getRawDataFromLocalStorage(): [] | false;
-  generateTasksFromRawData(): void;
+  generateTasksFromRawData(): boolean;
   tasks: Task[];
 }
 
@@ -48,9 +48,15 @@ export default class TaskList implements ITaskList {
   public generateTasksFromRawData() {
     const rawData = this.getRawDataFromLocalStorage();
 
-    for (const { uuid, text, isCompleted, timeStamp, lastEdited  } of rawData) {
-      this.tasks.push(new Task(text, this, isCompleted, timeStamp, lastEdited, uuid));
+    if (rawData) {
+      for (const { uuid, text, isCompleted, timeStamp, lastEdited  } of rawData) {
+        this.tasks.push(new Task(text, this, isCompleted, timeStamp, lastEdited, uuid));
+      }
+
+      return true;
     }
+
+    return false;
   }
 
 
