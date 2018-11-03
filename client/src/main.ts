@@ -1,5 +1,7 @@
 
 import "./style.pcss";
+import "./assets/logo-192.png";
+import "./assets/logo-512.png";
 import TaskList from "./TaskList";
 
 if (module.hot) {

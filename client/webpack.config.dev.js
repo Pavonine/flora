@@ -44,7 +44,14 @@ module.exports = {
           }
         ]
       },
-    ]
+      {
+        test: /\.png$/,
+        loader: 'file-loader',
+        options: {
+          name: 'images/[name].[ext]',
+        }
+      }
+    ],
   },
   devtool: 'source-map',
   mode: 'development',

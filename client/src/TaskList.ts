@@ -33,16 +33,24 @@ export default class TaskList implements ITaskList {
   }
 
   public saveDataToLocalStorage() {
-    if (window.localStorage) {
-      window.localStorage.setItem(LOCAL_STORAGE_NAME, JSON.stringify(this.generateRawData()));
-      return true;
-    } else {
-      return false;
+    try {
+      if (window.localStorage) {
+        window.localStorage.setItem(LOCAL_STORAGE_NAME, JSON.stringify(this.generateRawData()));
+        return true;
+      } else {
+        return false;
+      }
+    } catch (e) {
+      console.error(e);
     }
   }
 
   public getRawDataFromLocalStorage() {
-    return window.localStorage ? JSON.parse(window.localStorage.getItem(LOCAL_STORAGE_NAME)) : false;
+    try {
+      return window.localStorage ? JSON.parse(window.localStorage.getItem(LOCAL_STORAGE_NAME)) : false;
+    } catch (e) {
+      console.error(e);
+    }
   }
 
   public generateTasksFromRawData() {

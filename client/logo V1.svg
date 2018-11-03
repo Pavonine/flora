@@ -16,30 +16,44 @@
    version="1.1"
    id="svg8"
    inkscape:version="0.92.3 (2405546, 2018-03-11)"
-   sodipodi:docname="logo V1.svg">
+   sodipodi:docname="logo V1.svg"
+   inkscape:export-filename="I:\projects\flora\client\logo512x512.png"
+   inkscape:export-xdpi="130.048"
+   inkscape:export-ydpi="130.048">
   <defs
      id="defs2">
     <linearGradient
        inkscape:collect="always"
-       id="linearGradient39">
+       id="linearGradient25">
       <stop
-         style="stop-color:#5fd38d;stop-opacity:1;"
+         style="stop-color:#00ccff;stop-opacity:1;"
          offset="0"
-         id="stop35" />
+         id="stop21" />
       <stop
-         style="stop-color:#ff0066;stop-opacity:1"
+         style="stop-color:#ff00cc;stop-opacity:1"
          offset="1"
-         id="stop37" />
+         id="stop23" />
     </linearGradient>
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient39"
-       id="linearGradient41"
-       x1="62.970837"
-       y1="-76.998955"
-       x2="152.92917"
-       y2="-163.5177"
-       gradientUnits="userSpaceOnUse" />
+       xlink:href="#linearGradient25"
+       id="linearGradient27"
+       x1="63.048878"
+       y1="-78.667526"
+       x2="150.20547"
+       y2="-158.82166"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(0,231.84979)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient25"
+       id="linearGradient4555"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(7.0984402,236.98611)"
+       x1="63.048878"
+       y1="-78.667526"
+       x2="150.20547"
+       y2="-158.82166" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -48,19 +62,23 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2"
-     inkscape:cx="432.94737"
-     inkscape:cy="657.47553"
+     inkscape:zoom="1"
+     inkscape:cx="229.19157"
+     inkscape:cy="707.24674"
      inkscape:document-units="mm"
-     inkscape:current-layer="layer1"
-     showgrid="false"
+     inkscape:current-layer="g4558"
+     showgrid="true"
      inkscape:measure-start="0,0"
      inkscape:measure-end="0,0"
      inkscape:window-width="1920"
      inkscape:window-height="1013"
      inkscape:window-x="-9"
      inkscape:window-y="-9"
-     inkscape:window-maximized="1" />
+     inkscape:window-maximized="1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid4564" />
+  </sodipodi:namedview>
   <metadata
      id="metadata5">
     <rdf:RDF>
@@ -69,27 +87,43 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
-     id="layer1">
-    <rect
-       style="fill:url(#linearGradient41);stroke-width:0.26458332;fill-opacity:1"
-       id="rect10"
-       width="90.337097"
-       height="85.793518"
-       x="59.868374"
-       y="-158.82166"
-       transform="scale(1,-1)"
-       ry="14.699824" />
-    <path
-       style="fill:#ffffff;stroke-width:0.17694981"
-       d="m 130.21631,99.569213 c -0.96002,0.0181 -1.92338,0.33636 -2.74341,0.973217 l -26.76677,20.78782 -10.307327,-10.30698 c -1.807213,-1.80722 -4.717118,-1.80722 -6.524333,0 -1.807215,1.80721 -1.807215,4.71677 0,6.52399 l 13.093249,13.09324 c 0.734979,0.73498 1.652407,1.17095 2.603793,1.30812 1.245018,0.22782 2.577748,-0.0568 3.660648,-0.89789 l 29.90002,-23.2212 c 2.01853,-1.56765 2.38156,-4.45465 0.8139,-6.4732 -0.9308,-1.1985 -2.32667,-1.813487 -3.72977,-1.787117 z"
-       id="rect16"
-       inkscape:connector-curvature="0" />
+     id="layer1"
+     transform="matrix(1.1069649,0,0,1.1655892,-22.306355,-21.247761)"
+     inkscape:export-filename="I:\projects\flora\client\src\assets\logo.png"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96">
+    <g
+       id="g4570"
+       inkscape:export-filename="I:\projects\flora\client\src\assets\logo.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <g
+         transform="translate(4.0438497e-6,2.2699488)"
+         id="g4562">
+        <g
+           id="g4558">
+          <rect
+             ry="14.699824"
+             y="78.164459"
+             x="66.966812"
+             height="85.793518"
+             width="90.337097"
+             id="rect10"
+             style="fill:url(#linearGradient4555);fill-opacity:1;stroke-width:0.26458332" />
+        </g>
+      </g>
+      <path
+         inkscape:connector-curvature="0"
+         id="rect16"
+         d="m 135.70718,108.26785 c -0.96002,0.0181 -1.92338,0.33636 -2.74341,0.97321 L 106.197,130.02888 95.889689,119.7219 c -1.807213,-1.80722 -4.717118,-1.80722 -6.524333,0 -1.807215,1.80721 -1.807215,4.71677 0,6.52399 l 13.093234,13.09324 c 0.73498,0.73498 1.65241,1.17096 2.60379,1.30813 1.24502,0.22782 2.57775,-0.0568 3.66065,-0.8979 l 29.90002,-23.2212 c 2.01853,-1.56765 2.38156,-4.45465 0.8139,-6.4732 -0.9308,-1.1985 -2.32667,-1.81348 -3.72977,-1.78711 z"
+         style="fill:#ffffff;stroke-width:0.17694981" />
+    </g>
   </g>
 </svg>

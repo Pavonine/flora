@@ -1,9 +1,22 @@
 {
   "short_name": "Flora",
   "name": "Flora Task Manager",
+  "description": "A simple, self-hostable and free and open source task manager.",
   "start_url": ".",
-  "background_color": "red",
+  "background_color": "#FFF",
   "display": "standalone",
-  "theme_color": "red",
-  "orientation": "portrait"
+  "theme_color": "#00ccff",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/images/logo-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/images/logo-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
 }
